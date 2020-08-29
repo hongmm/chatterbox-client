@@ -18,6 +18,7 @@ var App = {
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
+      // console.log(data.results);
       // examine the response from the server request:
       //console.log(data);
       // var cb = function() {
@@ -25,8 +26,8 @@ var App = {
       // }
       // var test = function() {
       //   cb();
-      // }
-
+      console.log(data.results[2]);
+      MessagesView.render(data.results[2].text);
       // test();
       callback();
     });

@@ -3,10 +3,10 @@ var MessagesView = {
   $chats: $('#chats'),
 
   initialize: function() {
+
     //var messages = this.getMessages();
-    console.log('within getmessages: ', App.messages);
-    var messages = Messages.getMessages();
-    console.log('messages from messagesView', messages);
+    //Messages.getMessages();
+    //console.log('messages from messagesView', messages);
     // var messages = function() {
     //   return Messages.getMessages()
     // }
@@ -14,16 +14,20 @@ var MessagesView = {
     // var displayMessage = function()
   },
 
-  render() {
+  render: function(data) {
     // for the number of messages, generate new message view
     // MessageView.render()
+    // MessagesView.$chats.append(data);
 
+    console.log(data);
+    var html = _.template(`
+    <div class="chat">
+      <div>Message Content: ${data}</div>
+      <div></div>
+    </div>
+    `);
+
+    MessagesView.$chats.append(html);
   }
-  // render: _.template(`
-  //   <div class="chat">
-  //     <div>hola!</div>
-  //     <div></div>
-  //   </div>
-  // `)
 
 };
