@@ -19,15 +19,22 @@ var MessagesView = {
     // MessageView.render()
     // MessagesView.$chats.append(data);
 
-    console.log(data);
-    var html = _.template(`
-    <div class="chat">
-      <div>Message Content: ${data}</div>
-      <div></div>
-    </div>
-    `);
+    // console.log(data);
+    // var html = _.template(`
+    // <div class="chat">
+    // <div>Username: ${data.results[5].username}</div>
+    //   <div>Message Content: ${data.results[5].text}</div>
+    //   <div></div>
+    // </div>
+    // `);
 
-    MessagesView.$chats.append(html);
+    _.each(Messages.items(), function(message) {
+      // render a message
+      var $message = MessageView.render(message);
+      MessagesView.$chats.append($message);
+    });
+
+    // MessagesView.$chats.append(html);
   }
 
 };
